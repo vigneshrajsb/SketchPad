@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yLO-Bx-QsX">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sketches-->
+        <scene sceneID="REc-vC-qBW">
+            <objects>
+                <collectionViewController id="pi7-xx-Xzr" customClass="SketchesCollectionViewController" customModule="SketchPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qnX-ch-kig">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vQk-ad-diJ">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="A7T-iH-Dbc">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="pi7-xx-Xzr" id="VKu-Oz-ViB"/>
+                            <outlet property="delegate" destination="pi7-xx-Xzr" id="P3J-vC-Kib"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Sketches" id="4nO-Yf-tot">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Zxj-hb-jwy">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="UAx-n3-69f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="f3a-C4-AMJ" kind="show" identifier="gotToImage" id="kgt-aM-V8D"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebz-jo-lf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="103"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="VgA-sT-hpm">
+            <objects>
+                <viewController id="f3a-C4-AMJ" customClass="imageViewController" customModule="SketchPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hUS-8H-bit">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Fvo-UY-o3d"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Chg-r5-ksW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="891"/>
+        </scene>
+        <!--Draw View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DrawViewController" customModule="SketchPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gow-W7-ntx" userLabel="Status Bar Fix View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <color key="backgroundColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZqQ-GX-dJ8"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MP4-Jh-2jl">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEB-lv-eUY">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ggA-rh-Er3"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Sketchpad" id="8TY-vC-Q1V">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QD5-eH-klT">
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="BYZ-38-t0r" id="4tE-EQ-mHr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jEZ-ZX-EhY"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UDE-Yx-WkF">
+                                <rect key="frame" x="15" y="728" width="345" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gg3-cC-R4V" userLabel="hideButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="NU9-3C-IO3"/>
+                                            <constraint firstAttribute="height" constant="50" id="bok-kB-27Q"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                        <state key="normal" image="hide"/>
+                                        <connections>
+                                            <action selector="hideTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AyG-eX-I8H"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUG-H6-O7O" userLabel="lineCapButton">
+                                        <rect key="frame" x="73.666666666666671" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="nYi-Vz-vAJ"/>
+                                            <constraint firstAttribute="width" constant="50" id="pLR-Y1-AV0"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                        <state key="normal" image="cap"/>
+                                        <connections>
+                                            <action selector="setLineCap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tcl-Yb-sSs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5e-Rs-9NT" userLabel="brushSizeButton">
+                                        <rect key="frame" x="147.66666666666666" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="3V0-bZ-dhe"/>
+                                            <constraint firstAttribute="height" constant="50" id="RVa-5m-bmy"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                        <state key="normal" image="brush"/>
+                                        <connections>
+                                            <action selector="setBrushTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4Y-o8-FmD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utp-Mh-08y" userLabel="colorPaletteButton">
+                                        <rect key="frame" x="221.33333333333334" y="0.0" width="50.000000000000028" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="WwF-2I-oUN"/>
+                                            <constraint firstAttribute="height" constant="50" id="yUx-94-qOj"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                        <state key="normal" image="color"/>
+                                        <connections>
+                                            <action selector="setColorTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="akf-rB-oem"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuP-Rt-sCS" userLabel="eraserButton">
+                                        <rect key="frame" x="295" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="XeW-uT-6eZ"/>
+                                            <constraint firstAttribute="width" constant="50" id="q6r-zg-Jso"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
+                                        <state key="normal" image="eraser"/>
+                                        <connections>
+                                            <action selector="eraserTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="quo-Ss-OWL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0az-jM-rf6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MP4-Jh-2jl" secondAttribute="trailing" id="0Gx-dX-7xR"/>
+                            <constraint firstItem="pEB-lv-eUY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3IO-xw-6bh"/>
+                            <constraint firstItem="MP4-Jh-2jl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3w1-u8-tzQ"/>
+                            <constraint firstItem="MP4-Jh-2jl" firstAttribute="top" secondItem="pEB-lv-eUY" secondAttribute="bottom" id="JCQ-0s-sm5"/>
+                            <constraint firstItem="Gow-W7-ntx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LXa-dG-WXM"/>
+                            <constraint firstAttribute="trailing" secondItem="Gow-W7-ntx" secondAttribute="trailing" id="QYK-g0-6Hc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UDE-Yx-WkF" secondAttribute="bottom" id="RKO-Kf-79n"/>
+                            <constraint firstItem="UDE-Yx-WkF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="ec4-j2-i0J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MP4-Jh-2jl" secondAttribute="bottom" id="hZg-lb-ddq"/>
+                            <constraint firstItem="Gow-W7-ntx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hv7-bZ-gpO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UDE-Yx-WkF" secondAttribute="trailing" constant="15" id="nUb-k9-4oj"/>
+                            <constraint firstItem="pEB-lv-eUY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qIE-D0-2p3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pEB-lv-eUY" secondAttribute="trailing" id="zRN-6h-8GS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="brushSizeButton" destination="e5e-Rs-9NT" id="UgD-l6-JCk"/>
+                        <outlet property="colorPaletteButton" destination="Utp-Mh-08y" id="T0S-vF-7RI"/>
+                        <outlet property="eraserButton" destination="RuP-Rt-sCS" id="wBn-m9-dYz"/>
+                        <outlet property="hideButton" destination="Gg3-cC-R4V" id="d8O-cr-s1F"/>
+                        <outlet property="imageView" destination="MP4-Jh-2jl" id="SBG-1R-006"/>
+                        <outlet property="lineButton" destination="QUG-H6-O7O" id="c4Z-Qs-A8k"/>
+                        <outlet property="stackViewForButtons" destination="UDE-Yx-WkF" id="YQs-qK-TBF"/>
+                        <outlet property="trailingConstraintforButtonStack" destination="nUb-k9-4oj" id="x8W-Sc-KjP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485.5999999999999" y="102.70935960591133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vZn-DA-FE3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yLO-Bx-QsX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="TEf-4K-11H">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pi7-xx-Xzr" kind="relationship" relationship="rootViewController" id="OXA-2E-tvI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kCb-Lm-3Ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239.19999999999999" y="102.99850074962519"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="brush" width="64" height="64"/>
+        <image name="cap" width="64" height="64"/>
+        <image name="color" width="64" height="64"/>
+        <image name="eraser" width="64" height="64"/>
+        <image name="hide" width="64" height="64"/>
+    </resources>
+</document>
