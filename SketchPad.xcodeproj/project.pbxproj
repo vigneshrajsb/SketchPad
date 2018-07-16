@@ -15,6 +15,7 @@
 		50BCE71920F5BDAE000BDE26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BCE71720F5BDAE000BDE26 /* LaunchScreen.storyboard */; };
 		50BCE72120F5C205000BDE26 /* imageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BCE72020F5C205000BDE26 /* imageViewController.swift */; };
 		50BCE72520F5C24A000BDE26 /* SketchesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BCE72420F5C24A000BDE26 /* SketchesCollectionViewController.swift */; };
+		50CA791820FB2A0B008984E5 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA791720FB2A0B008984E5 /* ImageViewCell.swift */; };
 		F1BAB04C30E8C3757E952403 /* Pods_SketchPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42ABCEA5801AFDB9C149925 /* Pods_SketchPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		50BCE71A20F5BDAE000BDE26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50BCE72020F5C205000BDE26 /* imageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewController.swift; sourceTree = "<group>"; };
 		50BCE72420F5C24A000BDE26 /* SketchesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchesCollectionViewController.swift; sourceTree = "<group>"; };
+		50CA791720FB2A0B008984E5 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		56669018411AFBF13CE5BB98 /* Pods-SketchPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchPad/Pods-SketchPad.release.xcconfig"; sourceTree = "<group>"; };
 		F42ABCEA5801AFDB9C149925 /* Pods_SketchPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SketchPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 			children = (
 				50BCE71720F5BDAE000BDE26 /* LaunchScreen.storyboard */,
 				50BCE70F20F5BDAB000BDE26 /* Main.storyboard */,
+				50CA791720FB2A0B008984E5 /* ImageViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,10 +218,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SketchPad/Pods-SketchPad-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/FTPopOverMenu_Swift/FTPopOverMenu_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FTPopOverMenu_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +242,7 @@
 				50BCE72520F5C24A000BDE26 /* SketchesCollectionViewController.swift in Sources */,
 				50BCE70E20F5BDAB000BDE26 /* DrawViewController.swift in Sources */,
 				50BCE72120F5C205000BDE26 /* imageViewController.swift in Sources */,
+				50CA791820FB2A0B008984E5 /* ImageViewCell.swift in Sources */,
 				50BCE70C20F5BDAB000BDE26 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,7 +391,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RL4386D4Z;
 				INFOPLIST_FILE = SketchPad/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.VigneshrajSekarBabu.SketchPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -401,7 +410,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RL4386D4Z;
 				INFOPLIST_FILE = SketchPad/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.VigneshrajSekarBabu.SketchPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
