@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class imageViewController: UIViewController {
     
@@ -17,9 +18,11 @@ class imageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(updateImageAfterEdit), name: NSNotification.Name(rawValue: "reload"), object: nil)
       
     }
-    
+
     
     func initUI() {
         if let sketch = selectedSketch {
@@ -37,6 +40,26 @@ class imageViewController: UIViewController {
         }
     }
 
+    @objc func updateImageAfterEdit() {
+        if selectedSketch != nil {
+            
+            guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else { fatalError("context not available")}
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sketch")
+            
+            do {
+                if let fetchedSketches = try context.fetch(fetchRequest) as? [Sketch]{
+                    selectedSketch = fetchedSketches.reversed().first
+                    initUI()
+                }
+                
+            } catch {
+                fatalError("Error Fetching context :  \(error)")
+            }
+            
+        }
+        
+    }
     
     @IBAction func editTapped(_ sender: Any) {
         guard let sketch = selectedSketch else {return}
@@ -73,7 +96,7 @@ class imageViewController: UIViewController {
             if let destinationDrawVC = segue.destination as? DrawViewController {
                 destinationDrawVC.editSketch = sketchToEdit
                 destinationDrawVC.editFlag = true
-                navigationController?.popToRootViewController(animated: false)
+                //navigationController?.popToRootViewController(animated: false)
                 
             }
         }

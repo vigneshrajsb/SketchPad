@@ -149,6 +149,9 @@ class DrawViewController: UIViewController, ChromaColorPickerDelegate {
         sketch.imageName = fileName
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         deleteImageSentForEdit()
+        
+       
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
         dismiss(animated: true, completion: nil)
       
     }

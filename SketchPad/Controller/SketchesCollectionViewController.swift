@@ -22,18 +22,20 @@ class SketchesCollectionViewController: UICollectionViewController, UICollection
 
         // Register cell classes
        // self.collectionView!.register(ImageViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
        
+       
+    }
+    
+    @objc func loadList(notification : NSNotification) {
+        fetchdata()
+ 
     }
 
     override func viewWillAppear(_ animated: Bool) {
          fetchdata()
-        collectionView?.reloadData()
+   
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        collectionView?.reloadData()
-    }
     
     func fetchdata() {
         guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else { fatalError("context not available")}
@@ -43,6 +45,7 @@ class SketchesCollectionViewController: UICollectionViewController, UICollection
         do {
             if let fetchedSketches = try context.fetch(fetchRequest) as? [Sketch]{
                 sketches = fetchedSketches.reversed()
+                collectionView?.reloadData()
 //                for item in fetchedSketches {
 //                    guard let date = item.date else {return}
 //                    guard let imageName = item.imageName else { return}
